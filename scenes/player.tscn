@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctyis8joyhve6"]
+[gd_scene load_steps=12 format=3 uid="uid://ctyis8joyhve6"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_x365w"]
 [ext_resource type="Texture2D" uid="uid://khre3p8yuhnr" path="res://sprites/character-polygon-sheet.png" id="2_tw2wh"]
@@ -117,6 +117,15 @@ modifications/4 = SubResource("SkeletonModification2DCCDIK_14ttv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r30g2"]
 size = Vector2(303, 28)
+
+[sub_resource type="Animation" id="Animation_k5uxn"]
+resource_name = "riding"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hp5jq"]
+_data = {
+"riding": SubResource("Animation_k5uxn")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_x365w")
@@ -254,7 +263,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ElbowL" type="Bone2D" parent="Skeleton2D/TorsoLow/TorsoUp/ShoulderL"]
 position = Vector2(-27.0001, 52.9996)
 rotation = 0.0976952
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -27, 53)
 metadata/_local_pose_override_enabled_ = true
 
@@ -296,7 +304,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="KneeL" type="Bone2D" parent="Skeleton2D/TorsoLow/HipL"]
 position = Vector2(-12, 39.0003)
 rotation = 0.0667474
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -12, 39)
 metadata/_local_pose_override_enabled_ = true
 
@@ -386,3 +393,6 @@ position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_r30g2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hp5jq")
+}
