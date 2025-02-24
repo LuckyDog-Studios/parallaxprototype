@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://y2uemtr0yr8a"]
+
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="1_xxxgk"]
+[ext_resource type="Texture2D" uid="uid://duejuga83wbhd" path="res://sprites/background-bg.png" id="2_ytmf1"]
+[ext_resource type="Script" path="res://scripts/BackgroundProcessing.gd" id="3_em8u2"]
+[ext_resource type="Texture2D" uid="uid://d7dx42gv1pp4" path="res://sprites/background-mountains-back.png" id="4_g18uq"]
+[ext_resource type="Texture2D" uid="uid://g37u7h00b2ni" path="res://sprites/background-mountains-front.png" id="5_khtiv"]
+[ext_resource type="PackedScene" uid="uid://ctyis8joyhve6" path="res://scenes/player.tscn" id="6_qpq3h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1i7f"]
+shader = ExtResource("1_xxxgk")
+shader_parameter/glow_strength = 0.1
+shader_parameter/start_color = Color(0.388235, 0.109804, 1, 1)
+shader_parameter/end_color = Color(0.299968, 0.741753, 0.936028, 1)
+shader_parameter/shift_amount = -3.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_30r32"]
+
+[node name="Game" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG"]
+material = SubResource("ShaderMaterial_x1i7f")
+texture = ExtResource("2_ytmf1")
+centered = false
+script = ExtResource("3_em8u2")
+
+[node name="ParallaxLayerMountainsBack" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 1)
+motion_offset = Vector2(0, 30)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerMountainsBack"]
+texture = ExtResource("4_g18uq")
+centered = false
+
+[node name="ParallaxLayerMountainsFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_offset = Vector2(0, 10)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerMountainsFront"]
+texture = ExtResource("5_khtiv")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1306, 737)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_30r32")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_qpq3h")]
