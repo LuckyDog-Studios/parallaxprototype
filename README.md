@@ -1,6 +1,6 @@
-# Parralax Prototype
+# Parallax Prototype
 
-**Parralax Prototype** is a barebones, unfinished prototype built with Godot.
+**Parallax Prototype** is a barebones, unfinished prototype built with Godot.
 
 ---
 
