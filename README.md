@@ -13,17 +13,17 @@
 ## How to Run
 
 **WINDOWS:**
-1. Download the zip file in [Executable Folder](/EXECUTABLE/Windows)
+1. Download the zip file in [Executable Folder](/EXECUTABLES/Windows)
 2. Extract files
 3. Launch the executable and start playing
 
 **Linux:**
-1. Download the zip file in [Executable Folder](/EXECUTABLE/Linux)
+1. Download the zip file in [Executable Folder](/EXECUTABLES/Linux)
 2. Extract files
 3. Launch the executable and start playing
 
 **Mac:**
-1. Download the zip file in [Executable Folder](/EXECUTABLE/Mac)
+1. Download the zip file in [Executable Folder](/EXECUTABLES/Mac)
 2. Extract files
 3. Launch the executable and start playing
 
